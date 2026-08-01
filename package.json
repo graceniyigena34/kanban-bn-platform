@@ -7,7 +7,7 @@
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "postinstall": "prisma generate",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node -e \"const fs=require('fs');const path=require('path');const candidates=[path.resolve(process.cwd(),'dist/server.js'),path.resolve(process.cwd(),'../dist/server.js'),path.resolve(process.cwd(),'../../dist/server.js')];const entry=candidates.find(fs.existsSync);if(!entry){throw new Error('Cannot find built server.js');}require(entry);\""
   },
   "keywords": [],
   "author": "",
