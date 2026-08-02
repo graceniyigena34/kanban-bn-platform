@@ -5,7 +5,7 @@ services:
     plan: free
     rootDir: .
     buildCommand: npm install && npx prisma migrate deploy && npm run build
-    startCommand: sh -c 'if [ -f dist/server.js ]; then node dist/server.js; else node ../dist/server.js; fi'
+    startCommand: npm start
     healthCheckPath: /
     envVars:
       - key: NODE_ENV
